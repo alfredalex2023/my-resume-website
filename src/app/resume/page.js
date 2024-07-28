@@ -15,7 +15,7 @@ export default function Resume() {
       {/* Work Experience section */}
       <section>
         <h2>Work Experience</h2>
-        <p>Currently I don't have any work experience.</p>
+        <p>Currently I dont have any work experience.</p>
       </section>
       {/* Skills section */}
       <section>
