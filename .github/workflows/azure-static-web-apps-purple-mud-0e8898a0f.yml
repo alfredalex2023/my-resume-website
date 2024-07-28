@@ -3,36 +3,32 @@ name: Azure Static Web Apps CI/CD
 on:
   push:
     branches:
-      - master
+      - main
   pull_request:
     types: [opened, synchronize, reopened, closed]
     branches:
-      - master
+      - main
 
 jobs:
   build_and_deploy_job:
     runs-on: ubuntu-latest
     name: Build and Deploy Job
     steps:
-      - name: Checkout GitHub Action
+      - name: Checkout code
         uses: actions/checkout@v2
-
       - name: Set up Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v2
         with:
           node-version: '18.17.0'
-
-      - name: Install and Build
-        run: |
-          npm install
-          npm run build
-
-      - name: Deploy to Azure Static Web Apps
+      - name: Install dependencies
+        run: npm install
+      - name: Build app
+        run: npm run build
+      - name: Deploy to Azure
         uses: Azure/static-web-apps-deploy@v1
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-          action: "upload"
-          app_location: "/"
-          output_location: ".next"
-
+          action: 'upload'
+          app_location: '/src' # Update this to the correct directory
+          output_location: '/src/.next' # Update this to the correct build output directory
