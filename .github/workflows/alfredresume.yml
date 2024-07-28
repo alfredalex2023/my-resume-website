@@ -25,7 +25,7 @@ jobs:
       run: npm run build
  
     - name: Generate deployment token
-      run: echo "${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_GREEN_RIVER_0849BD80F }}" > token.txt
+      run: echo "${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_NICE_BEACH_0E302DD0F }}" > token.txt
  
     - name: Generate deployment YAML
       run: |
@@ -48,13 +48,14 @@ jobs:
         echo "      - name: Deploy to Azure" >> deploy.yml
         echo "        uses: azure/webapps-deploy@v2" >> deploy.yml
         echo "        with:" >> deploy.yml
-        echo "          app-name: 'alfredresume'" >> deploy.yml
-        echo "          publish-profile: \${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_GREEN_RIVER_0849BD80F }}" >> deploy.yml
+        echo "          app-name: 'alfred'" >> deploy.yml
+        echo "          publish-profile: \${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_NICE_BEACH_0E302DD0F }}" >> deploy.yml
  
     - name: Deploy to Azure
       uses: azure/webapps-deploy@v2
       with:
-        app-name: 'alfredresume'
-        publish-profile: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_GREEN_RIVER_0849BD80F }}
+        app-name: 'alfred'
+        echo "          publish-profile: \${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_NICE_BEACH_0E302DD0F }}" >> deploy.yml
+        publish-profile: ${{ secrets. }}
 
 has context menu
